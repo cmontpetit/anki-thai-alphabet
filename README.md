@@ -1,10 +1,12 @@
 # Thai Consonants Anki Deck
 
-A comprehensive Anki deck for learning all 44 Thai consonants with detailed information including pronunciation, tone class, and example words.
+A comprehensive Anki deck for learning all 41 Thai consonants with detailed information including pronunciation, tone class, and example words.
+
+**Note:** This deck includes 41 consonants, excluding 3 obsolete consonants (ฅ, ฃ, ฦ) that are rarely used in modern Thai.
 
 ## Features
 
-- **44 Thai consonants** with complete information
+- **41 Thai consonants** with complete information
 - **Paiboon romanization** with superscript tone markers (ᴴ, ᴸ, ᴿ, ᴰ, ᴹ)
 - **Tone class** (High, Mid, Low) for proper tone rules
 - **Initial and final sounds** for understanding consonant behavior
@@ -106,6 +108,16 @@ If you want pronunciation audio:
 - Used with low tone marks
 - Consonant names have mid tone (ᴹ)
 - Includes: ค, ช, ซ, ท, น, พ, ฟ, ม, ย, ร, ล, ว, ฮ, and others
+
+## Excluded Consonants
+
+This deck excludes 3 obsolete consonants that are rarely used in modern Thai:
+
+- **ฅ** (ฅอ คน) - Low class, kh- sound, -k final, meaning "person"
+- **ฃ** (ฃอ ขวด) - High class, kh- sound, -k final, meaning "bottle"  
+- **ฦ** (ฦอ ฦๅ) - Low class, l- sound, -n final, meaning "lue"
+
+These consonants were removed from the Thai alphabet in 1942 and are not included in most modern Thai learning materials.
 
 ## Audio Generation
 
