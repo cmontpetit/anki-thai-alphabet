@@ -161,23 +161,27 @@ def make_table(row, bold_idx):
 """
     return table
 
+def get_card_front_vowels():
+    """Return the set of all unique syllables used as card fronts in the TSV."""
+    card_fronts = set()
+    for row in vowel_rows:
+        for idx in [0, 1, 3, 4]:
+            if idx < len(row):
+                vowel = row[idx]
+                if vowel and vowel != "-":
+                    card_fronts.add(vowel)
+    return card_fronts
+
 def generate_audio_files():
-    """Generate audio files for all Thai vowels using gTTS"""
+    """Generate audio files for all Thai vowels used as card fronts using gTTS"""
     sounds_dir = "sounds"
     if not os.path.exists(sounds_dir):
         os.makedirs(sounds_dir)
         print(f"Created sounds directory: {sounds_dir}")
     print("Generating audio files for Thai vowels...")
     print("This may take a few minutes due to API rate limits...")
-    # Collect all unique vowel syllables used as card fronts
-    unique_vowels = set()
-    for row in vowel_rows:
-        for idx in [0, 1, 3, 4]:
-            if idx < len(row):
-                vowel = row[idx]
-                if vowel and vowel != "-":
-                    unique_vowels.add(vowel)
-    for vowel in unique_vowels:
+    card_fronts = get_card_front_vowels()
+    for vowel in card_fronts:
         filename = f"{sounds_dir}/cheat_sheet_vowel_{vowel}.mp3"
         if os.path.exists(filename):
             print(f"✓ {vowel} - Audio file already exists")
@@ -204,7 +208,7 @@ def main():
                 back = make_table(row, cell)
                 vowel_symbol = extract_vowel_symbol(vowel)
                 if vowel_symbol:
-                    sound_file = f"[sound:sounds/cheat_sheet_vowel_{vowel}.mp3]"
+                    sound_file = f"[sound:cheat_sheet_vowel_{vowel}.mp3]"
                     transcription = vowel_transcriptions.get(vowel, "")
                     if transcription:
                         back += f"<div style='text-align:center; margin-top:6px;'><b>{transcription}</b></div>"
