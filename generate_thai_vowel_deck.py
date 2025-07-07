@@ -1,5 +1,8 @@
 import csv
 import re
+import os
+from gtts import gTTS
+import time
 
 # Vowel transcription mapping with tone markers (using same system as consonants)
 # Format: syllable -> transcription_with_tone
@@ -168,6 +171,37 @@ def make_table(row, bold_idx):
 """
     return table
 
+def generate_audio_files():
+    """Generate audio files for all Thai vowels using gTTS"""
+    sounds_dir = "sounds"
+    if not os.path.exists(sounds_dir):
+        os.makedirs(sounds_dir)
+        print(f"Created sounds directory: {sounds_dir}")
+    print("Generating audio files for Thai vowels...")
+    print("This may take a few minutes due to API rate limits...")
+    # Collect all unique vowel syllables used as card fronts
+    unique_vowels = set()
+    for row in vowel_rows:
+        for idx in [0, 1, 3, 4]:
+            if idx < len(row):
+                vowel = row[idx]
+                if vowel and vowel != "-":
+                    unique_vowels.add(vowel)
+    for vowel in unique_vowels:
+        filename = f"{sounds_dir}/cheat_sheet_vowel_{vowel}.mp3"
+        if os.path.exists(filename):
+            print(f"✓ {vowel} - Audio file already exists")
+            continue
+        try:
+            tts = gTTS(text=vowel, lang='th', slow=False)
+            tts.save(filename)
+            print(f"✓ {vowel} - Generated {filename}")
+            time.sleep(0.5)
+        except Exception as e:
+            print(f"✗ {vowel} - Error generating audio: {e}")
+    print(f"\nAudio generation complete! Files saved in '{sounds_dir}/' directory")
+    print("Copy these files to your Anki media folder to use them in your deck.")
+
 def main():
     with open("thai_vowels.tsv", "w", encoding="utf-8", newline="") as f:
         writer = csv.writer(f, delimiter="\t", lineterminator="\n")
@@ -181,12 +215,36 @@ def main():
                 vowel_symbol = extract_vowel_symbol(vowel)
                 if vowel_symbol:
                     sound_file = f"[sound:sounds/cheat_sheet_vowel_{vowel}.mp3]"
-                    # Only add transcription for actual Thai syllables (not roman vowel sounds)
                     transcription = vowel_transcriptions.get(vowel, "")
                     if transcription:
                         back += f"<div style='text-align:center; margin-top:6px;'><b>{transcription}</b></div>"
                     back += f"<div style='text-align:center; margin-top:6px;'>{sound_file}</div>"
                 writer.writerow([front, back])
+    print(f"Created TSV file with Thai vowel cards (no header row, mobile-friendly em padding)")
+    print("\n" + "=" * 40)
+    response = input("Do you want to generate audio files using gTTS? (y/n): ").lower().strip()
+    if response in ['y', 'yes']:
+        try:
+            import gtts
+            generate_audio_files()
+        except ImportError:
+            print("\nError: gTTS is not installed.")
+            print("To install gTTS, run: pip install gTTS")
+            print("Then run this script again.")
+    else:
+        print("Skipping audio generation.")
+    print("\n" + "=" * 40)
+    print("To import into Anki:")
+    print("1. Open Anki")
+    print("2. File -> Import")
+    print("3. Select thai_vowels.tsv")
+    print("4. Choose 'Basic' as the note type")
+    print("5. Map Front and Back fields")
+    print("6. Import")
+    if response in ['y', 'yes']:
+        print("\nFor audio files:")
+        print("1. Copy files from 'sounds/' directory to your Anki media folder")
+        print("2. Restart Anki to load the audio files")
 
 if __name__ == "__main__":
     main() 

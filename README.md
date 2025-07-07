@@ -1,160 +1,101 @@
-# Thai Consonants Anki Deck
+# Thai Consonants & Vowels Anki Decks
 
-A comprehensive Anki deck for learning all 41 Thai consonants with detailed information including pronunciation, tone class, and example words.
-
-**Note:** This deck includes 41 consonants, excluding 3 obsolete consonants (ฅ, ฃ, ฦ) that are rarely used in modern Thai.
+A comprehensive set of Anki decks for learning all Thai consonants and vowels, with detailed information including pronunciation, tone class, and example words.
 
 ## Features
 
-- **41 Thai consonants** with complete information
-- **Paiboon romanization** with superscript tone markers (ᴴ, ᴸ, ᴿ, ᴰ, ᴹ)
-- **Tone class** (High, Mid, Low) for proper tone rules
-- **Initial and final sounds** for understanding consonant behavior
-- **Example words** with meanings
+- **Thai consonants and vowels** with complete information
+- **Paiboon romanization** with superscript tone markers (ᴹ, ᴿ, ᴸ, ᴴ, ᶠ)
+- **Tone class** (High, Mid, Low) for consonants
+- **Initial and final sounds** for consonants
+- **Example words** and meanings
 - **Educational notes** for each consonant
 - **HTML table layout** for clean, mobile-friendly display
-- **Optional audio generation** using Google Text-to-Speech (gTTS)
+- **Optional audio generation** using Google Text-to-Speech (gTTS) for both decks
 
 ## Card Format
 
-Each card follows this structure:
-
-### Front
-- Thai consonant character
-
-### Back
-- HTML table with:
-  - Consonant name in Thai script
-  - Paiboon pronunciation with tone markers
-  - Tone class (High/Mid/Low)
-  - Initial sound
-  - Final sound  
-  - Meaning of the example word
-  - Audio file reference
-  - Educational notes
-
-## Example Card
-
-**Front:** ก
+### Consonant Deck
+**Front:** Thai consonant character
 
 **Back:**
-```
-กอ ไก่
-gaawᴹ gaiᴸ
-Class: Mid
-Initial Sound: g-
-Final Sound: -k
-Meaning: chicken
-[sound:cheat_sheet_consonant_ก.mp3]
-Notes: This is the first consonant in the Thai alphabet. It represents the 'g' sound as in 'go'.
-```
+- Consonant name in Thai script
+- Paiboon pronunciation with tone markers
+- Tone class (High/Mid/Low)
+- Initial sound
+- Final sound
+- Meaning of the example word
+- Audio file reference
+- Educational notes
+
+### Vowel Deck
+**Front:** Thai vowel syllable (with ก as base consonant)
+
+**Back:**
+- HTML table showing the vowel row from the reference chart
+- Paiboon pronunciation with tone marker (if available)
+- Audio file reference
 
 ## Tone Markers
 
-The deck uses superscript tone markers in Paiboon romanization:
-- **ᴴ** = High tone
-- **ᴸ** = Low tone  
-- **ᴿ** = Rising tone
-- **ᴰ** = Falling tone
+The decks use superscript tone markers in Paiboon romanization:
 - **ᴹ** = Mid tone
+- **ᴿ** = Rising tone
+- **ᴸ** = Low tone
+- **ᴴ** = High tone
+- **ᶠ** = Falling tone
 
 ## Quick Start
 
-### 1. Import the Deck
+### 1. Generate Decks
+
+**Consonants:**
+```bash
+python generate_thai_consonant_deck.py
+```
+**Vowels:**
+```bash
+python generate_thai_vowel_deck.py
+```
+Both scripts will prompt you to optionally generate audio files after creating the TSV.
+
+### 2. Import into Anki
 1. Open Anki
 2. File → Import
-3. Select `thai_consonants.tsv`
+3. Select the appropriate TSV file (`thai_consonants.tsv` or `thai_vowels.tsv`)
 4. Choose "Basic" as the note type
 5. Map Front and Back fields
 6. Import
 
-### 2. Optional: Add Audio Files
-If you want pronunciation audio:
-
-1. **Install gTTS:**
-   ```bash
-   pip install gTTS
-   ```
-
-2. **Generate audio files:**
-   ```bash
-   python generate_thai_deck.py
-   ```
-
-3. **Add to Anki:**
-   - Copy files from `sounds/` directory to your Anki media folder
-   - Restart Anki to load the audio files
+### 3. Add Audio Files (Optional)
+If you chose to generate audio, copy files from the `sounds/` directory to your Anki media folder and restart Anki.
 
 ## Files
 
-- `thai_consonants.tsv` - TSV file ready for Anki import (no header row)
-- `generate_thai_deck.py` - Python script to generate the deck and audio files
+- `thai_consonants.tsv` - TSV file for consonant deck (no header row)
+- `thai_vowels.tsv` - TSV file for vowel deck (no header row)
+- `generate_thai_consonant_deck.py` - Script to generate consonant deck and audio
+- `generate_thai_vowel_deck.py` - Script to generate vowel deck and audio
 - `requirements.txt` - Python dependencies
 - `sounds/` - Directory containing generated audio files
 
-## Thai Consonant Classes
-
-### High Class (อักษรสูง)
-- Used with high tone marks
-- Consonant names have rising tone (ᴿ)
-- Includes: ข, ฉ, ถ, ผ, ฝ, ศ, ษ, ส, ห
-
-### Mid Class (อักษรกลาง)  
-- Used with mid tone marks
-- Consonant names have mid tone (ᴹ)
-- Includes: ก, จ, ฎ, ฏ, ด, ต, บ, ป, อ
-
-### Low Class (อักษรต่ำ)
-- Used with low tone marks
-- Consonant names have mid tone (ᴹ)
-- Includes: ค, ช, ซ, ท, น, พ, ฟ, ม, ย, ร, ล, ว, ฮ, and others
-
-## Excluded Consonants
-
-This deck excludes 3 obsolete consonants that are rarely used in modern Thai:
-
-- **ฅ** (ฅอ คน) - Low class, kh- sound, -k final, meaning "person"
-- **ฃ** (ฃอ ขวด) - High class, kh- sound, -k final, meaning "bottle"  
-- **ฦ** (ฦอ ฦๅ) - Low class, l- sound, -n final, meaning "lue"
-
-These consonants were removed from the Thai alphabet in 1942 and are not included in most modern Thai learning materials.
-
 ## Audio Generation
 
-The script uses Google Text-to-Speech (gTTS) to generate pronunciation audio files:
-
+Both scripts use Google Text-to-Speech (gTTS) to generate pronunciation audio files:
 - **Language:** Thai (th)
 - **Format:** MP3
-- **Content:** Consonant names in Thai script
-- **Naming:** `cheat_sheet_consonant_{consonant}.mp3` (e.g., `cheat_sheet_consonant_ก.mp3`)
+- **Content:** Consonant or vowel syllable in Thai script
+- **Naming:**
+  - Consonants: `cheat_sheet_consonant_{consonant}.mp3`
+  - Vowels: `cheat_sheet_vowel_{syllable}.mp3`
 
-### Troubleshooting Audio Generation
-
-**Xcode License Issues (macOS):**
-```bash
-sudo xcodebuild -license accept
-```
-
-**Alternative Installation:**
-```bash
-# Using Homebrew
-brew install python3
-pip3 install gTTS
-
-# Using conda
-conda install -c conda-forge gtts
-```
-
-**Network Issues:**
-- Check your internet connection
-- Try using a VPN
-- The deck works perfectly without audio files
+After TSV generation, you will be prompted to generate audio files. If you accept, the script will create all necessary audio files in the `sounds/` directory.
 
 ## Learning Tips
 
 1. **Start with Mid Class** consonants as they have the most straightforward tone rules
 2. **Learn by class** - group consonants by their tone class
-3. **Practice writing** each consonant while reviewing
+3. **Practice writing** each consonant and vowel while reviewing
 4. **Use the example words** to build vocabulary
 5. **Focus on initial sounds** first, then learn final sound variations
 6. **Listen to the audio** to improve pronunciation
@@ -162,7 +103,7 @@ conda install -c conda-forge gtts
 
 ## Customization
 
-You can modify the `generate_thai_deck.py` script to:
+You can modify the scripts to:
 - Add more example words
 - Include additional pronunciation guides
 - Modify the HTML table format
@@ -178,7 +119,7 @@ You can modify the `generate_thai_deck.py` script to:
 
 ## Contributing
 
-Feel free to improve this deck by:
+Feel free to improve these decks by:
 - Adding more example words
 - Improving pronunciation guides
 - Adding more detailed notes
