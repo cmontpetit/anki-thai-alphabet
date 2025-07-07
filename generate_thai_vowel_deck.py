@@ -1,6 +1,85 @@
 import csv
 import re
 
+# Vowel transcription mapping with tone markers (using same system as consonants)
+# Format: syllable -> transcription_with_tone
+# Only include transcriptions for actual Thai syllables, not roman vowel sounds
+# Tone mapping: ᴹ=Mid, ᴿ=Rising, ᴸ=Low, ᴴ=High, ᶠ=Falling
+vowel_transcriptions = {
+    "ก็-": "gàᶠ",
+    "กะ": "gàᶠ",
+    "แก็-": "gàeᶠ",
+    "แกะ": "gàeᶠ",
+    "ก็อ-": "gàwᶠ",
+    "เกาะ": "gàwᶠ",
+    "เก็-": "gèᶠ",
+    "เกะ": "gèᶠ",
+    "เกิ-": "gə̀ᶠ",
+    "เกอะ": "gə̀ᶠ",
+    "โกะ": "gòᶠ",
+    "โก-": "gōᴹ",
+    "โก": "gōᴹ",
+    "กิ-": "gìᶠ",
+    "กิ": "gìᶠ",
+    "กึ-": "gʉ̀ᶠ",
+    "กึ": "gʉ̀ᶠ",
+    "กื": "gʉ̄ᴹ",
+    "กึอ": "gʉ̄ᴹ",
+    "กุ-": "gùᶠ",
+    "กุ": "gùᶠ",
+    "กู-": "gūᴹ",
+    "กู": "gūᴹ",
+    "เกียะ": "gìaᶠ",
+    "เกีย-": "gīaᴹ",
+    "เกีย": "gīaᴹ",
+    "เกือะ": "gʉ̀aᶠ",
+    "เกือ-": "gʉ̄aᴹ",
+    "เกือ": "gʉ̄aᴹ",
+    "กัวะ": "gùaᶠ",
+    "กว-": "gūaᴹ",
+    "กัว": "gūaᴹ",
+    "ไก": "gaiᴹ",
+    "ไก-": "gaiᴹ",
+    "ใก": "gaiᴹ",
+    "กาย": "gaaiᴹ",
+    "กัย": "gaiᴹ",
+    "ไกย": "gaiᴹ",
+    "ก็อย": "gàwyᶠ",
+    "กอย": "gàwyᶠ",
+    "เกย": "gə̀yᶠ",
+    "โกย": "gòyᶠ",
+    "กุ": "gùyᶠ",
+    "เกือย": "gʉ̀ayᶠ",
+    "กวย": "guayᴹ",
+    "กวาย": "guayᴹ",
+    "เกา": "gaoᴹ",
+    "กาว": "gaoᴹ",
+    "แก็ว": "gàewᶠ",
+    "แกว": "gàewᶠ",
+    "เกอว": "gə̀awᶠ",
+    "เก็ว": "gèwᶠ",
+    "เกว": "gèwᶠ",
+    "กิว": "giwᴹ",
+    "เกียว": "gìawᶠ",
+    "กํา": "gamᴹ",
+    "ฤ-": "rʉ́ᴿ",
+    "ฤ": "rʉ́ᴿ",
+    "ฤ-": "ríᴿ",
+    "กา-": "gāᴹ",
+    "กา": "gāᴹ",
+    "แก-": "gǣᴹ",
+    "แก": "gǣᴹ",
+    "กอ-": "gāwᴹ",
+    "กอ": "gāwᴹ",
+    "เก-": "gēᴹ",
+    "เก": "gēᴹ",
+    "เกิ-": "gə̄ᴹ",
+    "เกิ-": "gə̄ᴹ",
+    "เก": "gə̄ᴹ",
+    "เกีย-": "gīaᴹ",
+    "เกือ-": "gʉ̄aᴹ"
+}
+
 # Vowel data as per the PNG (first few rows for sample, add more as needed)
 vowel_rows = [
     ["ก็-", "กะ", "aa/ah", "กา-", "กา"],
@@ -55,7 +134,7 @@ vowel_examples = [
 ]
 
 def extract_vowel_symbol(cell):
-    # Remove HTML tags and light grey ก, return the first Thai vowel mark
+    # Remove HTML tags and return the first Thai vowel mark
     # Remove <span ...>ก</span> if present
     cell = re.sub(r'<span[^>]*>ก</span>', '', cell)
     # Remove leading ก if present
@@ -102,6 +181,10 @@ def main():
                 vowel_symbol = extract_vowel_symbol(vowel)
                 if vowel_symbol:
                     sound_file = f"[sound:sounds/cheat_sheet_vowel_{vowel}.mp3]"
+                    # Only add transcription for actual Thai syllables (not roman vowel sounds)
+                    transcription = vowel_transcriptions.get(vowel, "")
+                    if transcription:
+                        back += f"<div style='text-align:center; margin-top:6px;'><b>{transcription}</b></div>"
                     back += f"<div style='text-align:center; margin-top:6px;'>{sound_file}</div>"
                 writer.writerow([front, back])
 
