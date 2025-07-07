@@ -44,12 +44,6 @@ subheaders = ["Closed", "Open", "Sound", "Closed", "Open"]
 def bold(text):
     return f"<b>{text}</b>" if text else ""
 
-def lighten_ko_kai(text):
-    # If the first character is ก, wrap it in a light grey span, leave the rest as is
-    if text and text[0] == 'ก':
-        return f'<span style="color:#cccccc">ก</span>{text[1:]}'
-    return text
-
 # Example words for each vowel variation (first 5 rows, 4 variations per row)
 vowel_examples = [
     # [short_closed, short_open, long_closed, long_open]
@@ -84,7 +78,6 @@ def make_table(row, bold_idx):
         bold(row[3]) if bold_idx == 3 else row[3],
         bold(row[4]) if bold_idx == 4 else row[4],
     ]
-    cells = [lighten_ko_kai(c) if i != 2 else c for i, c in enumerate(cells)]
     table = f"""
 <div style='text-align:center'>
 <table border='1' cellpadding='3' style='border-collapse:collapse; margin:auto;'>
@@ -104,11 +97,11 @@ def main():
                 vowel = row[cell]
                 if not vowel or vowel == "-":
                     continue
-                front = lighten_ko_kai(vowel)
+                front = vowel
                 back = make_table(row, cell)
                 vowel_symbol = extract_vowel_symbol(vowel)
                 if vowel_symbol:
-                    sound_file = f"[sound:sounds/cheat_sheet_vowel_{vowel_symbol}.mp3]"
+                    sound_file = f"[sound:sounds/cheat_sheet_vowel_{vowel}.mp3]"
                     back += f"<div style='text-align:center; margin-top:6px;'>{sound_file}</div>"
                 writer.writerow([front, back])
 
