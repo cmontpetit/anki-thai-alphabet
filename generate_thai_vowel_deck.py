@@ -85,7 +85,7 @@ vowel_transcriptions = {
 
 # Vowel data as per the PNG (first few rows for sample, add more as needed)
 vowel_rows = [
-    ["ก็-", "กะ", "aa/ah", "กา-", "กา"],
+    ["กั-", "กะ", "aa/ah", "กา-", "กา"],
     ["แก็-", "แกะ", "ae", "แก-", "แก"],
     ["ก็อ-", "เกาะ", "aaw", "กอ-", "กอ"],
     ["เก็-", "เกะ", "eh/ey", "เก-", "เก"],
@@ -97,7 +97,7 @@ vowel_rows = [
     ["", "เกียะ", "ia", "เกีย-", "เกีย"],
     ["", "เกือะ", "eua", "เกือ-", "เกือ"],
     ["", "กัวะ", "ua", "กว-", "กัว"],
-    ["", "ไก", "", "ai", "ไก-", ""],
+    ["ไก", "", "ai", "ไก-", ""],
     ["ใก", "", "ai", "กาย", ""],
     ["กัย", "", "ai", "", ""],
     ["ไกย", "", "ai", "", ""],
@@ -125,16 +125,6 @@ subheaders = ["Closed", "Open", "Sound", "Closed", "Open"]
 # Helper to make bold in Anki (using <b> tags)
 def bold(text):
     return f"<b>{text}</b>" if text else ""
-
-# Example words for each vowel variation (first 5 rows, 4 variations per row)
-vowel_examples = [
-    # [short_closed, short_open, long_closed, long_open]
-    ["จัก", "จะ", "มา", "นา"],
-    ["แกะ", "แค", "แมว", "แพ"],
-    ["เด็ก", "เตะ", "เท", "เม"],
-    ["โต๊ะ", "โต", "โค", "โม"],
-    ["เกาะ", "ขอ", "ขอ", "ขอ"],
-]
 
 def extract_vowel_symbol(cell):
     # Remove HTML tags and return the first Thai vowel mark

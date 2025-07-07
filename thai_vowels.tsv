@@ -1,18 +1,18 @@
-ก็-	"
+กั-	"
 <div style='text-align:center'>
 <table border='1' cellpadding='3' style='border-collapse:collapse; margin:auto;'>
   <tr><th colspan='2'>SHORT</th><th></th><th colspan='2'>LONG</th></tr>
   <tr><th>Closed</th><th>Open</th><th>Sound</th><th>Closed</th><th>Open</th></tr>
-  <tr><td><b>ก็-</b></td><td>กะ</td><td>aa/ah</td><td>กา-</td><td>กา</td></tr>
+  <tr><td><b>กั-</b></td><td>กะ</td><td>aa/ah</td><td>กา-</td><td>กา</td></tr>
 </table>
 </div>
-<div style='text-align:center; margin-top:6px;'><b>gàᶠ</b></div><div style='text-align:center; margin-top:6px;'>[sound:sounds/cheat_sheet_vowel_ก็-.mp3]</div>"
+<div style='text-align:center; margin-top:6px;'>[sound:sounds/cheat_sheet_vowel_กั-.mp3]</div>"
 กะ	"
 <div style='text-align:center'>
 <table border='1' cellpadding='3' style='border-collapse:collapse; margin:auto;'>
   <tr><th colspan='2'>SHORT</th><th></th><th colspan='2'>LONG</th></tr>
   <tr><th>Closed</th><th>Open</th><th>Sound</th><th>Closed</th><th>Open</th></tr>
-  <tr><td>ก็-</td><td><b>กะ</b></td><td>aa/ah</td><td>กา-</td><td>กา</td></tr>
+  <tr><td>กั-</td><td><b>กะ</b></td><td>aa/ah</td><td>กา-</td><td>กา</td></tr>
 </table>
 </div>
 <div style='text-align:center; margin-top:6px;'><b>gàᶠ</b></div><div style='text-align:center; margin-top:6px;'>[sound:sounds/cheat_sheet_vowel_กะ.mp3]</div>"
@@ -21,7 +21,7 @@
 <table border='1' cellpadding='3' style='border-collapse:collapse; margin:auto;'>
   <tr><th colspan='2'>SHORT</th><th></th><th colspan='2'>LONG</th></tr>
   <tr><th>Closed</th><th>Open</th><th>Sound</th><th>Closed</th><th>Open</th></tr>
-  <tr><td>ก็-</td><td>กะ</td><td>aa/ah</td><td><b>กา-</b></td><td>กา</td></tr>
+  <tr><td>กั-</td><td>กะ</td><td>aa/ah</td><td><b>กา-</b></td><td>กา</td></tr>
 </table>
 </div>
 <div style='text-align:center; margin-top:6px;'><b>gaaᴹ</b></div><div style='text-align:center; margin-top:6px;'>[sound:sounds/cheat_sheet_vowel_กา-.mp3]</div>"
@@ -30,7 +30,7 @@
 <table border='1' cellpadding='3' style='border-collapse:collapse; margin:auto;'>
   <tr><th colspan='2'>SHORT</th><th></th><th colspan='2'>LONG</th></tr>
   <tr><th>Closed</th><th>Open</th><th>Sound</th><th>Closed</th><th>Open</th></tr>
-  <tr><td>ก็-</td><td>กะ</td><td>aa/ah</td><td>กา-</td><td><b>กา</b></td></tr>
+  <tr><td>กั-</td><td>กะ</td><td>aa/ah</td><td>กา-</td><td><b>กา</b></td></tr>
 </table>
 </div>
 <div style='text-align:center; margin-top:6px;'><b>gaaᴹ</b></div><div style='text-align:center; margin-top:6px;'>[sound:sounds/cheat_sheet_vowel_กา.mp3]</div>"
@@ -399,25 +399,16 @@
 <table border='1' cellpadding='3' style='border-collapse:collapse; margin:auto;'>
   <tr><th colspan='2'>SHORT</th><th></th><th colspan='2'>LONG</th></tr>
   <tr><th>Closed</th><th>Open</th><th>Sound</th><th>Closed</th><th>Open</th></tr>
-  <tr><td></td><td><b>ไก</b></td><td></td><td>ai</td><td>ไก-</td></tr>
+  <tr><td><b>ไก</b></td><td></td><td>ai</td><td>ไก-</td><td></td></tr>
 </table>
 </div>
 <div style='text-align:center; margin-top:6px;'><b>gaiᴹ</b></div><div style='text-align:center; margin-top:6px;'>[sound:sounds/cheat_sheet_vowel_ไก.mp3]</div>"
-ai	"
-<div style='text-align:center'>
-<table border='1' cellpadding='3' style='border-collapse:collapse; margin:auto;'>
-  <tr><th colspan='2'>SHORT</th><th></th><th colspan='2'>LONG</th></tr>
-  <tr><th>Closed</th><th>Open</th><th>Sound</th><th>Closed</th><th>Open</th></tr>
-  <tr><td></td><td>ไก</td><td></td><td><b>ai</b></td><td>ไก-</td></tr>
-</table>
-</div>
-<div style='text-align:center; margin-top:6px;'>[sound:sounds/cheat_sheet_vowel_ai.mp3]</div>"
 ไก-	"
 <div style='text-align:center'>
 <table border='1' cellpadding='3' style='border-collapse:collapse; margin:auto;'>
   <tr><th colspan='2'>SHORT</th><th></th><th colspan='2'>LONG</th></tr>
   <tr><th>Closed</th><th>Open</th><th>Sound</th><th>Closed</th><th>Open</th></tr>
-  <tr><td></td><td>ไก</td><td></td><td>ai</td><td><b>ไก-</b></td></tr>
+  <tr><td>ไก</td><td></td><td>ai</td><td><b>ไก-</b></td><td></td></tr>
 </table>
 </div>
 <div style='text-align:center; margin-top:6px;'><b>gaiᴹ</b></div><div style='text-align:center; margin-top:6px;'>[sound:sounds/cheat_sheet_vowel_ไก-.mp3]</div>"
